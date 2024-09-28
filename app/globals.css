@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-rgb: 20, 20, 20; /* Metallic black */
+  --border-rgba: 0, 0, 0, 0.1;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-rgb: 20, 20, 20; /* Darker, cooler black */
+    --border-rgba: 255, 255, 255, 0.1;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background-color: rgb(var(--background-rgb)); /* Metallic black */
+  background-image: url('/hexagonal.svg'); /* Reference your hexagonal SVG */
+  background-size: 30px 34.64px; /* Adjusted size for smaller hexagonal alignment */
+  background-repeat: repeat;
+  background-position: center;
+  background-blend-mode: overlay; /* Blending effect for neon and metallic look */
+  animation: hexGlow 8s infinite alternate;
+}
+
+@keyframes hexGlow {
+  0% {
+    background-size: 28px 32px; /* Slight zoom-in effect */
+    filter: brightness(0.9); /* Subtle glowing effect */
+  }
+  50% {
+    filter: brightness(1.1); /* Enhanced glow */
+  }
+  100% {
+    background-size: 32px 36px; /* Slight zoom-out effect */
+    filter: brightness(1.2); /* More pronounced glow */
+  }
+}
